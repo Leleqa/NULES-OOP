@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <math.h>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ public:
     void sside(float);
     float gside();
     float area();
-  friend HEXAGON merge_pucks(HEXAGON, HEXAGON);
+  friend HEXAGON frd(HEXAGON, HEXAGON);
 };
 HEXAGON::HEXAGON(){
     a=0;
@@ -42,10 +43,10 @@ void print_sqr(HEXAGON &puck1, HEXAGON &puck2){
     puck2.sside(4);
 }
 
-  HEXAGON merge_pucks(HEXAGON puck1, HEXAGON puck2){
+  HEXAGON frd(HEXAGON puck1, HEXAGON puck2){
   HEXAGON puck3;
   float area = ((3*sqrtf(3))/2)*pow(puck1.a,2) + ((3*sqrtf(3))/2)*pow(puck2.a,2); // sum of puck1.a and puck2.a
-  puck3.a = pow(3,(1/4))*sqrtf(((2*area)/9));
+  puck3.a = sqrt((2*area)/(3*sqrtf(3)));                                          // calculate side a of puck3
   return puck3;
 
 }
@@ -56,7 +57,7 @@ int main(){
   HEXAGON puck3;
   print_sqr(puck1, puck2);
   cout << puck2.area() << endl;
-  puck3 = merge_pucks(puck1,puck2);
+  puck3 = frd(puck1,puck2);
   cout << "Сторона нової шайби: " << puck3.gside() << endl;
   return 0;
 }
