@@ -22,7 +22,7 @@ HEXAGON::HEXAGON(){
 
 HEXAGON::HEXAGON(float ASIDE){
     a = ASIDE;
-    cout << "Конструтор з параметрами викликаний для об'єкта " << this << endl;
+    cout << "Конструктор з параметрами викликаний для об'єкта " << this << endl;
 }
 
 void HEXAGON::sside(float ASIDE){
