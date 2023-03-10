@@ -6,17 +6,27 @@ using namespace std;
 
 class STUDENT{
   string name;
-  int grade;
+  int grade1;
+  int grade2;
+  int grade3;
 public:
-  void Set(string name, int grade){
+  void Set(string name, int grade1, int grade2, int grade3){
     this->name = name;
-    this->grade = grade;
+    this->grade1 = grade1;
+    this->grade2 = grade2;
+    this->grade3 = grade3;
   }
   string GetName(){
     return name;
   }
-  int GetGrade(){
-    return grade;
+  int GetGradeA(){
+    return grade1;
+  }
+  int GetGradeB(){
+    return grade2;
+  }
+  int GetGradeC(){
+    return grade3;
   }
 };
 
@@ -32,7 +42,6 @@ int main(){
     while(!file.eof()){
       getline(file, str, '\n');
       lineCount++;
-
     }
   lineCount--;
 
@@ -42,13 +51,15 @@ int main(){
   
   for (int i; i < lineCount; i++){
       string name;
-      int grade;
+      int grade1, grade2, grade3;
       file >> name;
-      file >> grade;
-      group[i].Set(name, grade);
+      file >> grade1;
+      file >> grade2;
+      file >> grade3;
+      group[i].Set(name, grade1,grade2,grade3);
     }
   for(int i = 0; i < lineCount; i++){
-      cout << group[i].GetName() << " "<< group[i].GetGrade() << endl;
+      cout << group[i].GetName() << " "<< group[i].GetGradeA() << " " << group[i].GetGradeB() << " " << group[i].GetGradeC() << endl;
 
     }
 
