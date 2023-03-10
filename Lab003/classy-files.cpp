@@ -81,14 +81,15 @@ void ReadSomeObj(STUDENT *group, int lineCount){
 int main(){
   ifstream file;
   int lineCount;
-  
   file.open("group.txt");
+
   if(file){
+
   lineCount = CountLine(file);
   
   STUDENT *group = new STUDENT[lineCount];
-  file.clear();
-  file.seekg(0);
+ file.clear();
+ file.seekg(0);
   
   WriteObjects(group, file, lineCount);
 
@@ -96,5 +97,8 @@ int main(){
   cout << "\n" << endl;
   ReadSomeObj(group, lineCount);
 
+  }
+  else{
+    cout << "Не вдалося відкрити файл" << endl;
   }
 }
