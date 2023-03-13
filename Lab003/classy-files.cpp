@@ -33,7 +33,6 @@ public:
 int CountLine(ifstream &file){
 int lineCount = 0;
 string str;
-if(file){
     while(!file.eof()){
       getline(file, str, '\n');
       lineCount++;
@@ -41,11 +40,8 @@ if(file){
   lineCount--;
     return lineCount;
   }
-else{
-      cout << "Не вдалося відкрити файл" << endl; 
-      return -1;
-    }
-}
+    
+
 
 void WriteObjects(STUDENT *group, ifstream &file, int lineCount){
   
